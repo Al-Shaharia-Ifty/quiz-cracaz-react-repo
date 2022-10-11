@@ -3,8 +3,12 @@ import { useLoaderData } from "react-router-dom";
 
 const Quiz = () => {
   const data = useLoaderData();
-  const { total, name, logo, questions } = data.data;
+  const { total, name, logo, questions, correctAnswer } = data.data;
 
+  const handleSubmit = (e) => {
+    const select = e.target.id;
+    console.log(select);
+  };
   return (
     <div>
       <div className="mt-10 flex justify-center items-center">
@@ -13,11 +17,24 @@ const Quiz = () => {
         <p>total quiz : {total}</p>
       </div>
       <div className="mt-10">
-        {questions.map((p) => (
-          <div className="border-2 p-3 mx-20 my-5 rounded-lg">
+        {questions.map((p, index) => (
+          <div key={index} className="border-2 p-3 mx-20 my-5 rounded-lg">
             <h2>
               Question: <span className="font-medium">{p.question}</span>
             </h2>
+            <form className="grid grid-cols-1 md:grid-cols-2 mt-5">
+              {p.options.map((o, index) => (
+                <label htmlFor={o} key={index}>
+                  <p
+                    className="bg-teal-200 p-2 rounded-lg m-2 flex"
+                    onClick={handleSubmit}
+                  >
+                    <input className="mr-3" type="radio" name="quiz" id={o} />
+                    {o}
+                  </p>
+                </label>
+              ))}
+            </form>
           </div>
         ))}
       </div>
