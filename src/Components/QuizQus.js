@@ -1,5 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
+import { FiEye } from "react-icons/fi";
 
 const QuizQus = ({ p }) => {
   const { correctAnswer } = p;
@@ -12,11 +13,17 @@ const QuizQus = ({ p }) => {
       toast.error("Opss! Wrong Answer");
     }
   };
+  const showAnswer = () => {
+    toast(correctAnswer);
+  };
   return (
     <div className="border-2 p-3 mx-20 my-5 rounded-lg">
-      <h2>
-        Question: <span className="font-medium">{p.question}</span>
-      </h2>
+      <div className="flex justify-between">
+        <h2>
+          Question: <span className="font-medium">{p.question}</span>
+        </h2>
+        <FiEye onClick={showAnswer} />
+      </div>
       <form className="grid grid-cols-1 md:grid-cols-2 mt-5">
         {p.options.map((o, index) => (
           <label htmlFor={o} key={index}>
