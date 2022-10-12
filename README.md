@@ -2,7 +2,7 @@
 
 ## Live Website Link
 
-Live Website Link[Live Website link](https://clinquant-mochi-11fadf.netlify.app/).
+[Live Website link](https://clinquant-mochi-11fadf.netlify.app/).
 
 ### About Website
 
