@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { FiEye } from "react-icons/fi";
 
 const QuizQus = ({ p }) => {
   const { correctAnswer } = p;
+  const [answer, setAnswer] = useState("");
 
   const handleSubmit = (e) => {
     const select = e.target.id;
@@ -14,7 +15,12 @@ const QuizQus = ({ p }) => {
     }
   };
   const showAnswer = () => {
-    toast(correctAnswer);
+    // toast(correctAnswer);
+    if (answer) {
+      setAnswer("");
+    } else {
+      setAnswer(correctAnswer);
+    }
   };
   return (
     <div className="border-2 p-3 lg:mx-20 my-5 rounded-lg">
@@ -27,7 +33,7 @@ const QuizQus = ({ p }) => {
       <form className="grid grid-cols-1 md:grid-cols-2 mt-5">
         {p.options.map((o, index) => (
           <label htmlFor={o} key={index}>
-            <p className="bg-teal-200 p-2 rounded-lg m-2 flex">
+            <p className="hover:bg-teal-200 border-2 p-2 rounded-lg m-2 flex">
               <input
                 className="mr-3"
                 type="radio"
@@ -40,6 +46,13 @@ const QuizQus = ({ p }) => {
           </label>
         ))}
       </form>
+      {answer ? (
+        <p className="text-xl">
+          Correct Answer : <span className="text-green-500">{answer}</span>
+        </p>
+      ) : (
+        <p></p>
+      )}
     </div>
   );
 };
