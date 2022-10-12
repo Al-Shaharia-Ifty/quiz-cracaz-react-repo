@@ -17,6 +17,16 @@ const Navbar = () => {
           Home
         </NavLink>
         <NavLink
+          to="statistics"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-500 mx-3 text-xl font-medium"
+              : " mx-3 text-xl font-medium"
+          }
+        >
+          Statistics
+        </NavLink>
+        <NavLink
           to="blog"
           className={({ isActive }) =>
             isActive

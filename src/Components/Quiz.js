@@ -10,7 +10,7 @@ const Quiz = () => {
     <div>
       <div className="mt-10 flex justify-center items-center">
         <img className="w-16 bg-gray-200 rounded-lg" src={logo} alt="" />
-        <h1 className="text-2xl mx-10">{name}</h1>
+        <h1 className="text-2xl mx-10">Quiz of {name}</h1>
         <p>total quiz : {total}</p>
       </div>
       <div className="mt-10">
