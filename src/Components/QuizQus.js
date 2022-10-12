@@ -17,7 +17,7 @@ const QuizQus = ({ p }) => {
     toast(correctAnswer);
   };
   return (
-    <div className="border-2 p-3 lg:mx-20 mx-10 my-5 rounded-lg">
+    <div className="border-2 p-3 lg:mx-20 my-5 rounded-lg">
       <div className="flex justify-between">
         <h2>
           Question: <span className="font-medium">{p.question}</span>
